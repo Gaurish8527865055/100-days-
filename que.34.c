@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <math.h> 
+
+int main() {
+    int n, i, isPrime = 1;
+
+    printf("Enter a positive integer: ");
+    scanf("%d", &n);
+    if (n <= 1) {
+        isPrime = 0; 
+    } else if (n == 2) {
+        isPrime = 1;
+    } else if (n % 2 == 0) {
+        isPrime = 0; 
+    } else {
+        for (i = 3; i * i <= n; i += 2) {
+            if (n % i == 0) {
+                isPrime = 0; 
+                break;       
+            }
+        }
+    }
+
+    if (isPrime) {
+        printf("%d is a prime number.\n", n);
+    } else {
+        printf("%d is not a prime number.\n", n);
+    }
+
+    return 0;
+}
